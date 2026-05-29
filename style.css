@@ -2,24 +2,26 @@ body{
     font-family: Arial;
     font-size: 1.5em;
     text-align: center;
-    background-color: rgb(135, 135, 135);
+    background-color: rgb(164, 157, 121);
 }
 
 hr{
-    width: 500px;
+    width: 550px;
+    border: 4px solid rgb(255, 255, 255);
 }
 #title{
     font-size: 36px;
-    font-weight: bold;
     letter-spacing: 2px;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
 }
 #answer{
-    color: aliceblue;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
 }
 
 #board{
-    width: 140px;
+    width: 160px;
     height: 350px;
     /* this margin stuff centers box. margins are used to create separations*/
     margin: 0 auto;
@@ -32,13 +34,14 @@ hr{
 
 .tile{
     /* box */
-    border: 2px solid lightgray;
+    border: 4px solid rgb(255, 255, 255);
     width: 60px;
     height: 60px;
     margin: 2.5px;
+    border-radius: 4px;
 
     /* text */
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 36px;
     font-weight: bold;
     display: flex;
@@ -82,20 +85,20 @@ hr{
 
 .key-tile{
     /* box */
-    border: 1px solid lightgray;
+    border: 4px solid rgb(241, 226, 177);
     width: 38px;
     height: 40px;
-    margin: 1px;
-    background-color: rgb(146, 146, 146);
+    margin: 2px;
+    background-color: rgb(177, 167, 133);
     border-radius: 4px;
     cursor: grab;
     
 
     /* text */
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
 }
