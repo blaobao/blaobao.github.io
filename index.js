@@ -1,7 +1,7 @@
 var word = "72";
 
 /* --------------------------------------------------- \\
-    I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT */
+    I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT this may be from youtube fr */
 
 var numGuesses = 5;
 var lengthOfWord = 2;
@@ -17,8 +17,8 @@ window.onload = function(){
 }
 
 // writing this one to remember let = var but usable only in the {} it's in
-// a span is used for the characters. it does not force creation of new line. like System.out.print()!!!!!
-// 
+// a span is used for the characters. it does not force creation of new line
+
 function initialize(){
     for(let row = 0; row < numGuesses; row++){
         for(let col = 0; col < lengthOfWord; col++){
@@ -44,7 +44,7 @@ function initialize(){
         if(gameOver) return;
         if("Digit0" <= e.code && "Digit9" >= e.code){
             if(curLetter < lengthOfWord){
-                //tile will go forwards by 1 visually
+                //visually appending letter and moving to next
                 let curTile = document.getElementById(curGuess.toString() + '-' + curLetter.toString());
                 if(curTile.innerText == ""){
                     curTile.innerText = e.code[5];
@@ -57,7 +57,7 @@ function initialize(){
                 curLetter -= 1;
             }
 
-            //tile will go back by 1 visually
+            //visually removing letter and going back to previous box
             let curTile = document.getElementById(curGuess.toString() + '-' + curLetter.toString());
 
             curTile.innerText = "";
