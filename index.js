@@ -1,7 +1,7 @@
 var word = "72";
 
 /* --------------------------------------------------- \\
-    I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT this may be from youtube fr */
+    I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT */
 
 var numGuesses = 5;
 var lengthOfWord = 2;
@@ -17,8 +17,8 @@ window.onload = function(){
 }
 
 // writing this one to remember let = var but usable only in the {} it's in
-// a span is used for the characters. it does not force creation of new line
-
+// a span is used for the characters. it does not force creation of new line. like System.out.print()!!!!!
+// 
 function initialize(){
     for(let row = 0; row < numGuesses; row++){
         for(let col = 0; col < lengthOfWord; col++){
@@ -39,41 +39,79 @@ function initialize(){
         }
     }
 
+    let keyboard = [
+        ["1", "2", "3", "4", "5", "⌫"],
+        ["✓", "6", "7", "8", "9", "0"]
+    ]
+
+    for(let i = 0; i<keyboard.length; i++){
+        let row = keyboard[i];
+        let keyboardRow =  document.createElement("div");
+        keyboardRow.classList.add("keyboard-row");
+
+        for(j = 0; j<row.length; j++){
+            let keyTile = document.createElement("div");
+            let key = row[j];
+            keyTile.innerText = key;
+
+            if(key == "✓") keyTile.id = "Enter";
+            else if(key == "⌫") keyTile.id = "Backspace";
+            else if(key >= "0" && key <= "9") keyTile.id = "Digit" + key;
+
+            keyTile.addEventListener("click", keyInput)
+            keyTile.classList.add("key-tile");
+
+            keyboardRow.appendChild(keyTile);
+        }
+        //adds row to keyboard
+        document.body.appendChild(keyboardRow);
+    }
+
     //key press tracker using keyup. tracks when you lift up
     document.addEventListener("keyup", (e) => {
-        if(gameOver) return;
-        if("Digit0" <= e.code && "Digit9" >= e.code){
-            if(curLetter < lengthOfWord){
-                //visually appending letter and moving to next
-                let curTile = document.getElementById(curGuess.toString() + '-' + curLetter.toString());
-                if(curTile.innerText == ""){
-                    curTile.innerText = e.code[5];
-                    curLetter += 1;
-                }
-            }
-        }
-        else if(e.code == "Backspace"){
-            if(curLetter > 0 && curLetter <= lengthOfWord){
-                curLetter -= 1;
-            }
-
-            //visually removing letter and going back to previous box
-            let curTile = document.getElementById(curGuess.toString() + '-' + curLetter.toString());
-
-            curTile.innerText = "";
-        }
-        else if(e.code == "Enter"){
-            update();
-            curGuess += 1;
-            curLetter = 0;
-        }
-        if(!gameOver && curGuess == numGuesses){
-
-            //give answer if die
-            gameOver = true;
-            document.getElementById("answer").innerText = word;
-        }
+        input(e);
     })
+}
+
+function keyInput(){
+    let e = {"code" : this.id}; //assigns key id to e
+    input(e);
+}
+
+function input(e) {
+    if(gameOver) return;
+    
+    if("Digit0" <= e.code && "Digit9" >= e.code){
+        if(curLetter < lengthOfWord){
+            //tile will go forwards by 1 visually
+            let curTile = document.getElementById(curGuess.toString() + '-' + curLetter.toString());
+            if(curTile.innerText == ""){
+                curTile.innerText = e.code[5];
+                curLetter += 1;
+            }
+        }
+    }
+    else if(e.code == "Backspace"){
+        if(curLetter > 0 && curLetter <= lengthOfWord){
+            curLetter -= 1;
+        }
+
+        //tile will go back by 1 visually
+        let curTile = document.getElementById(curGuess.toString() + '-' + curLetter.toString());
+
+        curTile.innerText = "";
+    }
+    else if(e.code == "Enter"){
+        update();
+        curGuess += 1;
+        curLetter = 0;
+    }
+    if(!gameOver && curGuess == numGuesses){
+
+        //give answer if die
+        gameOver = true;
+        document.getElementById("answer").innerText = word;
+    }
 }
 
 function update(){
