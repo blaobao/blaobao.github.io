@@ -8,9 +8,6 @@ body{
 hr{
     width: 250px;
 }
-
-/* tags */
-
 #title{
     font-size: 36px;
     font-weight: bold;
@@ -24,12 +21,14 @@ hr{
 #board{
     width: 140px;
     height: 350px;
+    /* this margin stuff centers box. margins are used to create separations*/
     margin: 0 auto;
+    /* flex stuff keeps text inside the box no matter what screen size*/
     display: flex;
     flex-wrap: wrap;
 }
 
-/* classes stuff */
+/*these . things are basically classes. you can use these in js code*/
 
 .tile{
     /* box */
@@ -43,6 +42,8 @@ hr{
     font-size: 36px;
     font-weight: bold;
     display: flex;
+
+    /*center stuff*/
     justify-content: center;
     align-items: center;
 }
@@ -63,4 +64,31 @@ hr{
     background-color: rgb(120, 62, 62);
     color: white;
     border-color: white;
+}
+
+.keyboard-row{
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.key-tile{
+    /* box */
+    border: 1px solid lightgray;
+    width: 38px;
+    height: 40px;
+    margin: 1px;
+    background-color: white;
+    border-radius: 4px;
+    cursor: grab;
+    
+
+    /* text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
