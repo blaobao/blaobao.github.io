@@ -8,6 +8,9 @@ body{
 hr{
     width: 250px;
 }
+
+/* tags */
+
 #title{
     font-size: 36px;
     font-weight: bold;
@@ -21,14 +24,12 @@ hr{
 #board{
     width: 140px;
     height: 350px;
-    /* this margin stuff centers box. margins are used to create separations*/
     margin: 0 auto;
-    /* flex stuff keeps text inside the box no matter what screen size*/
     display: flex;
     flex-wrap: wrap;
 }
 
-/*these . things are basically classes. you can use these in js code*/
+/* classes stuff */
 
 .tile{
     /* box */
@@ -42,8 +43,6 @@ hr{
     font-size: 36px;
     font-weight: bold;
     display: flex;
-
-    /*center stuff*/
     justify-content: center;
     align-items: center;
 }
