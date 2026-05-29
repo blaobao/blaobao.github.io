@@ -1,4 +1,4 @@
-var word = "79";
+var word = "72";
 
 /* --------------------------------------------------- \\
     I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT */
@@ -41,7 +41,7 @@ function initialize(){
 
     let keyboard = [
         ["1", "2", "3", "4", "5", "⌫"],
-        ["✓", "6", "7", "8", "9", "0"]
+        ["✔", "6", "7", "8", "9", "0"]
     ]
 
     for(let i = 0; i<keyboard.length; i++){
@@ -54,7 +54,7 @@ function initialize(){
             let key = row[j];
             keyTile.innerText = key;
 
-            if(key == "✓") keyTile.id = "Enter";
+            if(key == "✔") keyTile.id = "Enter";
             else if(key == "⌫") keyTile.id = "Backspace";
             else if(key >= "0" && key <= "9") keyTile.id = "Digit" + key;
 
@@ -110,12 +110,14 @@ function input(e) {
 
         //give answer if die
         gameOver = true;
-        document.getElementById("answer").innerText = word;
+        document.getElementById("answer").innerText = "damn bro answer was " + word;
     }
 }
 
 function update(){
+    let yourWord = "";
     let correct = 0;
+
     for(let i = 0; i < lengthOfWord; i++){
         let curTile = document.getElementById(curGuess.toString() + '-' + i.toString());
         let letter = curTile.innerText;
@@ -126,14 +128,31 @@ function update(){
         }
 
         //other cases
-        else if(word.includes(letter)) curTile.classList.add("included");
+        else if(word.includes(letter) && letter != "") curTile.classList.add("included");
+        else if(letter == "") curTile.classList.add("empty");
         else curTile.classList.add("wrong");
+
+        if(letter == "") yourWord = "";
+        yourWord += letter;
 
         if(correct == lengthOfWord){
             gameOver = true;
             document.getElementById("answer").innerText = "you guessed it in " + (curGuess + 1) + "!!!";
+            document.body.style.backgroundColor = "rgb(121, 148, 124)";
         }
 
 
     }
+    if(parseInt(yourWord) < parseInt(word)){
+        document.getElementById("answer").innerText = "too low!";
+        document.body.style.backgroundColor = "rgb(106, 131, 149)";
+    } 
+    else if(parseInt(yourWord) > parseInt(word)){
+        document.getElementById("answer").innerText = "too high!";
+        document.body.style.backgroundColor = "rgb(150, 118, 118)";
+    } 
+    else if(yourWord == ""){
+        document.getElementById("answer").innerText = "there can't be empty tiles!";
+        document.body.style.backgroundColor = "rgb(61, 61, 61)";
+    } 
 }
