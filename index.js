@@ -1,4 +1,4 @@
-var word = "74";
+var word = "79";
 
 /* --------------------------------------------------- \\
     I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT */
