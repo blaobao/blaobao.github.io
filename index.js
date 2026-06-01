@@ -1,5 +1,7 @@
-var word = "91";
-const date = new Date();
+// UPDATE PER DAY \\:
+
+var word = "91"; //room temp!!!
+var date = new Date(2026, 6, 1, 12, 20); //year, month, day, hour, minute
 
 /* --------------------------------------------------- \\
     I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT */
@@ -66,6 +68,7 @@ function initialize(){
         }
         //adds row to keyboard
         document.body.appendChild(keyboardRow);
+
         document.getElementById("date").innerText = date;
     }
 
