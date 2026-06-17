@@ -1,7 +1,7 @@
 // UPDATE PER DAY \\:
 
-var word = "78"; //room temp!!!
-var date = "Updated 06/15/2026 @ 10:06PM";
+var word = "74"; //room temp!!!
+var date = "Updated 06/17/2026 @ 6:19PM";
 
 /* --------------------------------------------------- \\
     I DO NOT KNOW JAVASCRIPT THIS IS MY FIRST PROJECT */
